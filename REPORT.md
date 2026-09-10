@@ -47,7 +47,7 @@ We evaluated three systems across our **200 hand-curated Golden Evaluation Set**
 | **Escalation Precision** | 0.000 | 0.000 | **0.519** |
 | **Escalation Recall** | 0.000 | 0.000 | **0.391** |
 | **Escalation F1** | 0.000 | 0.000 | **0.446** |
-| **False-Automation Rate (FAR)** ⚠️ | 100.0% | 100.0% | **60.9%** (Significant reduction) |
+| **False-Automation Rate (FAR)** ️ | 100.0% | 100.0% | **60.9%** (Significant reduction) |
 | **Over-Escalation Rate** | **0.0%** | 0.8% | 19.1% |
 | **LLM Judge Groundedness (1-5)** | 3.0 / 5.0 | 3.0 / 5.0 | **5.0 / 5.0** |
 | **LLM Judge Tone (1-5)** | 4.0 / 5.0 | 3.4 / 5.0 | **4.17 / 5.0** |
@@ -74,10 +74,10 @@ Rigorous evaluation demands diagnosing where the agent falls short. Below are th
 * **Hypothesis**: The model treats keywords independently rather than constructing a causal dependency graph (Software Update $\to$ Temporary Background Indexing $\to$ Battery Drain).
 
 ### Failure Mode 2: Sarcastic & Understated Severity Phrasing
-* **Customer Tweet**: *"Love how my brand new $1200 iPhone doubles as an electric hand warmer that melts my phone case 🥰"*
+* **Customer Tweet**: *"Love how my brand new $1200 iPhone doubles as an electric hand warmer that melts my phone case "*
 * **Gold Escalation**: `ESCALATE` (True risk: Extreme device overheating / battery defect; sarcastic tone)
 * **Predicted Escalation**: `AUTO_HANDLE` (False Automation)
-* **Actual Outcome**: Because the user used words like "Love" and emojis "🥰" without saying "fire" or "hazard", the safety regex did not trigger.
+* **Actual Outcome**: Because the user used words like "Love" and emojis "" without saying "fire" or "hazard", the safety regex did not trigger.
 * **Hypothesis**: Regex and bag-of-words heuristics fail on figurative irony, passive-aggressive sarcasm, and euphemistic descriptions of physical defects.
 
 ### Failure Mode 3: Disputed Refund Re-escalation Ambiguity

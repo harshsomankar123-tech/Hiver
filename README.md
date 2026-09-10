@@ -1,4 +1,4 @@
-# Hiver SDE Intern Assignment: Production-Grade AI Customer Support Agent & Rigorous Evaluation Pipeline
+# Production-Grade AI Customer Support Agent & Rigorous Evaluation Pipeline
 
 An end-to-end AI customer support agent for **`@AppleSupport`** on Twitter/X that turns noisy real-world customer tweets into structured, grounded, and safe customer support resolutions.
 
@@ -36,7 +36,7 @@ Evaluated across the **200 hand-curated Golden Evaluation Set** (51.5% Easy, 30.
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Baseline 0 (Trivial Canned)** | 0.049 | 0.000 | 100.0% | 0.318 | 3.64 / 5.0 | 0.01 ms |
 | **Baseline 1 (Simple Zero-Shot)** | 0.566 | 0.000 | 100.0% | 0.115 | 3.57 / 5.0 | 0.01 ms |
-| **Proposed Support Agent (RAG)** | **0.847** | **0.446** | **60.9%** | **0.164** | **4.58 / 5.0** | **0.55 ms** |
+| **Proposed Support Agent (RAG)** | **0.847** | **0.446** | **60.9%** | **0.158** | **4.56 / 5.0** | **0.55 ms** |
 
 ### Operational Escalation & Safety Breakdown
 * **False Automation Rate**: Dropped significantly compared to baselines (which failed on 100% of high-risk cases).
@@ -104,19 +104,3 @@ Hiver/
 └── tests/
     └── test_agent.py                  # Unit tests covering all core components
 ```
-
----
-
-## Core Deliverables Checklist (Assignment Requirements)
-
-- [x] **1. Runnable Repo with Reproducible Results (<15 mins)**: Run `python3 run_eval.py` to reproduce all headline results in seconds.
-- [x] **2. Golden Evaluation Set (150–250 Examples)**: Exactly 200 hand-labelled examples in `data/golden_eval_set.jsonl` with difficulty tiers and annotation notes in `docs/annotation_guidelines.md`.
-- [x] **3. Evaluation Harness + LLM Judge + Human Agreement Proof**: Automated metrics + 4-dimensional rubric in `docs/judge_rubric.md` + empirical Cohen's Kappa (κ = 0.6271) proof in `src/human_study.py`.
-- [x] **4. Comprehensive Report**: Detailed in `REPORT.md` covering Problem framing, Baselines, Top 5 Failure Modes with real examples and hypotheses, the mandatory *"What is misleading about my headline number?"* section, and Next Week plans.
-- [x] **5. Decision Log (10–15 Non-Obvious Decisions)**: 12 detailed architectural and operational decisions documented in `DECISION_LOG.md`.
-
----
-
-## Submission Link
-Everything is packaged cleanly for evaluation and submission via the designated form:  
-`https://intelligent-bar-256.notion.site/39492cbf0da2800682cfc78a600a745f?pvs=105`
