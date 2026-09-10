@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-09-10 20:23:55",
+  "timestamp": "2026-09-10 20:52:36",
   "dataset_size": 200,
   "headline_metrics": {
     "Baseline 0 (Trivial Canned)": {
@@ -13,7 +13,22 @@
           "recall": 1.0,
           "f1": 0.3402
         },
+        "ACCOUNT_ICLOUD_SECURITY": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
         "BILLING_SUBSCRIPTIONS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "CONNECTIVITY_NETWORK": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "DEVICE_PHYSICAL_AUDIO": {
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0
@@ -24,21 +39,6 @@
           "f1": 0.0
         },
         "SOFTWARE_UPDATE_OS": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0
-        },
-        "DEVICE_PHYSICAL_AUDIO": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0
-        },
-        "ACCOUNT_ICLOUD_SECURITY": {
-          "precision": 0.0,
-          "recall": 0.0,
-          "f1": 0.0
-        },
-        "CONNECTIVITY_NETWORK": {
           "precision": 0.0,
           "recall": 0.0,
           "f1": 0.0
@@ -64,10 +64,25 @@
           "recall": 0.7805,
           "f1": 0.7619
         },
+        "ACCOUNT_ICLOUD_SECURITY": {
+          "precision": 0.9565,
+          "recall": 0.6875,
+          "f1": 0.8
+        },
         "BILLING_SUBSCRIPTIONS": {
           "precision": 1.0,
           "recall": 0.3462,
           "f1": 0.5143
+        },
+        "CONNECTIVITY_NETWORK": {
+          "precision": 1.0,
+          "recall": 0.1304,
+          "f1": 0.2308
+        },
+        "DEVICE_PHYSICAL_AUDIO": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667
         },
         "OUT_OF_SCOPE_FEEDBACK": {
           "precision": 0.2125,
@@ -78,21 +93,6 @@
           "precision": 0.9048,
           "recall": 0.5,
           "f1": 0.6441
-        },
-        "DEVICE_PHYSICAL_AUDIO": {
-          "precision": 0.6667,
-          "recall": 0.6667,
-          "f1": 0.6667
-        },
-        "ACCOUNT_ICLOUD_SECURITY": {
-          "precision": 0.9565,
-          "recall": 0.6875,
-          "f1": 0.8
-        },
-        "CONNECTIVITY_NETWORK": {
-          "precision": 1.0,
-          "recall": 0.1304,
-          "f1": 0.2308
         }
       },
       "escalation_accuracy": 0.65,
@@ -115,10 +115,25 @@
           "recall": 0.9512,
           "f1": 0.8764
         },
+        "ACCOUNT_ICLOUD_SECURITY": {
+          "precision": 1.0,
+          "recall": 0.8125,
+          "f1": 0.8966
+        },
         "BILLING_SUBSCRIPTIONS": {
           "precision": 1.0,
           "recall": 0.5769,
           "f1": 0.7317
+        },
+        "CONNECTIVITY_NETWORK": {
+          "precision": 0.95,
+          "recall": 0.8261,
+          "f1": 0.8837
+        },
+        "DEVICE_PHYSICAL_AUDIO": {
+          "precision": 0.9091,
+          "recall": 0.9524,
+          "f1": 0.9302
         },
         "OUT_OF_SCOPE_FEEDBACK": {
           "precision": 0.6071,
@@ -129,21 +144,6 @@
           "precision": 0.8537,
           "recall": 0.9211,
           "f1": 0.8861
-        },
-        "DEVICE_PHYSICAL_AUDIO": {
-          "precision": 0.9091,
-          "recall": 0.9524,
-          "f1": 0.9302
-        },
-        "ACCOUNT_ICLOUD_SECURITY": {
-          "precision": 1.0,
-          "recall": 0.8125,
-          "f1": 0.8966
-        },
-        "CONNECTIVITY_NETWORK": {
-          "precision": 0.95,
-          "recall": 0.8261,
-          "f1": 0.8837
         }
       },
       "escalation_accuracy": 0.665,
@@ -152,7 +152,7 @@
       "escalation_f1": 0.4463,
       "false_automation_rate": 0.6087,
       "over_escalation_rate": 0.1908,
-      "avg_rouge_l": 0.1641,
+      "avg_rouge_l": 0.1579,
       "avg_latency_ms": 0.55
     }
   },
@@ -173,10 +173,10 @@
     },
     "Proposed Support Agent (RAG)": {
       "avg_groundedness": 5.0,
-      "avg_tone": 4.17,
-      "avg_actionability": 4.73,
+      "avg_tone": 4.08,
+      "avg_actionability": 4.74,
       "avg_escalation_match": 4.22,
-      "avg_overall_quality": 4.58
+      "avg_overall_quality": 4.56
     }
   },
   "human_judge_alignment": {

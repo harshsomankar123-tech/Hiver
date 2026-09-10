@@ -1,6 +1,6 @@
 """
 Unified LLM API Client for Hiver AI Support Agent.
-Powered by Google Gemini 2.5 Flash API.
+Powered by Google Gemini 2.5 Flash API with silent fallback.
 """
 
 import json
@@ -76,14 +76,13 @@ class LLMClient:
         )
 
         try:
-            with urllib.request.urlopen(req, timeout=12) as response:
+            with urllib.request.urlopen(req, timeout=8) as response:
                 res_data = json.loads(response.read().decode("utf-8"))
                 candidates = res_data.get("candidates", [])
                 if candidates:
                     parts = candidates[0].get("content", {}).get("parts", [])
                     if parts:
                         return parts[0].get("text", "").strip()
-        except Exception as e:
-            print(f"[LLMClient] Gemini API Error: {e}")
+        except Exception:
             return None
         return None
