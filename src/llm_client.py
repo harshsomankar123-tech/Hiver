@@ -38,6 +38,8 @@ class LLMClient:
         
         if self.provider == "gemini":
             return self._call_gemini(system_prompt, conversation_history, user_message, context_docs)
+        elif self.provider == "openai":
+            return self._call_openai(system_prompt, conversation_history, user_message, context_docs)
         return None
 
     def _call_gemini(self, system_prompt: str, history: List[Dict[str, str]], user_message: str, context_docs: str) -> Optional[str]:
@@ -86,3 +88,40 @@ class LLMClient:
         except Exception:
             return None
         return None
+
+    def _call_openai(self, system_prompt: str, history: List[Dict[str, str]], user_message: str, context_docs: str) -> Optional[str]:
+        url = "https://api.openai.com/v1/chat/completions"
+        full_system = f"{system_prompt}\n\n[Retrieved Apple Support Knowledge]:\n{context_docs if context_docs else 'Use official Apple knowledge.'}"
+
+        messages = [{"role": "system", "content": full_system}]
+        for msg in history[-6:]:
+            role = "user" if msg.get("role") == "user" else "assistant"
+            messages.append({"role": role, "content": msg.get("text", "")})
+        messages.append({"role": "user", "content": user_message})
+
+        payload = {
+            "model": "gpt-4o-mini",
+            "messages": messages,
+            "temperature": 0.3,
+            "max_tokens": 800
+        }
+
+        req = urllib.request.Request(
+            url,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "Content-Type": "application/json",
+                "Authorization": f"Bearer {self.openai_key}"
+            }
+        )
+
+        try:
+            with urllib.request.urlopen(req, timeout=8) as response:
+                res_data = json.loads(response.read().decode("utf-8"))
+                choices = res_data.get("choices", [])
+                if choices:
+                    return choices[0].get("message", {}).get("content", "").strip()
+        except Exception:
+            return None
+        return None
+

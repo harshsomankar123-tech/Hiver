@@ -48,22 +48,23 @@ Evaluated across the **200 hand-curated Golden Evaluation Set** (51.5% Easy, 30.
 
 ---
 
-## System Architecture
+## Dual-Mode Architecture & Execution
 
-```
-Incoming Tweet ───► Intent Classifier ───► Intent + Confidence (0.0 - 1.0)
-                          │
-                          ├───► Hybrid BM25 Retriever ───► Top Historical Resolutions
-                          │
-                          ├───► Escalation Decision Engine
-                          │     (Detects safety hazards, account takeover, fraud, low confidence)
-                          │
-                          └───► Reply Synthesizer & Guardrail
-                                (Grounded in historical resolutions, Twitter 280-char limit)
-                                       │
-                                       ▼
-                       Output JSON: Intent + Draft Reply + Verdict + Reason
-```
+The agent operates in two interchangeable execution modes designed for high reliability and zero-configuration benchmarking:
+
+1. **Live Cloud LLM Mode (Google Gemini & OpenAI ChatGPT)**:
+   - When an API key (`GEMINI_API_KEY` or `OPENAI_API_KEY`) is configured in `.env`, the agent uses **Google Gemini 2.5 Flash** or **OpenAI GPT-4o-mini** to synthesize conversational, brand-aligned customer responses.
+   - Retrieved official resolutions from the historical corpus are injected directly into the LLM system prompt as verified grounding context, preventing hallucinations and ensuring factual accuracy.
+   - Features multi-turn context retention across up to 6 dialogue turns for interactive troubleshooting.
+   - Built with native standard-library HTTP clients (`urllib.request`) and an 8-second timeout, failing over silently to offline mode if the external API is unreachable.
+
+2. **Offline Local Deterministic Fallback Mode (Zero API Keys Required)**:
+   - When no API keys are provided, the system executes locally using pure Python standard library modules.
+   - Delivers sub-millisecond responses (~0.5 ms) grounded in historical verified resolutions (`data/historical_resolutions.jsonl`).
+   - Ensures deterministic, audited escalation responses for high-risk queries (battery hazards, account security, financial fraud).
+   - Guarantees 100% test and benchmark reproducibility across any environment in under 15 seconds.
+
+For an in-depth architectural breakdown, module responsibilities, and a complete Mermaid workflow diagram, see [structure.md](structure.md).
 
 ---
 
@@ -72,6 +73,7 @@ Incoming Tweet ───► Intent Classifier ───► Intent + Confidence (
 ```
 Hiver/
 ├── README.md                          # Quickstart (<15s reproduction guide) & project overview
+├── structure.md                       # Full architecture documentation & Mermaid workflow diagram
 ├── REPORT.md                          # Full technical report (Baselines, Failures, "What is misleading...")
 ├── DECISION_LOG.md                    # 12 non-obvious engineering decisions & trade-offs
 ├── run_eval.py                        # Single-command evaluation pipeline runner
