@@ -1,6 +1,6 @@
 """
 Intent Classification Engine for AppleSupport Tweets.
-Combines domain keyword anchors, semantic phrase patterns, and confidence estimation.
+Combines domain keyword anchors, semantic phrase patterns, typo tolerance, and confidence estimation.
 """
 
 import re
@@ -12,8 +12,9 @@ INTENT_KEYWORDS: Dict[str, List[str]] = {
     "HARDWARE_BATTERY": [
         "battery", "drain", "draining", "charge", "charging", "charger", "magsafe", "heat",
         "overheating", "hot", "warm", "percentage", "cycle count", "swollen", "bulging",
-        "battery health", "died", "shut off", "shuts down", "power off", "low power mode",
-        "low power", "clean energy charging", "mfi", "5w", "20w", "watts"
+        "battery health", "died", "shut off", "shuts down", "shutdown", "shudown", "power off",
+        "low power mode", "low power", "clean energy charging", "mfi", "5w", "20w", "watts",
+        "turning off", "shuts off", "turns down"
     ],
     "SOFTWARE_UPDATE_OS": [
         "update", "updating", "updated", "ios", "ipados", "macos", "sonoma", "ventura",
