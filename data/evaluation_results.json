@@ -1,0 +1,215 @@
+{
+  "timestamp": "2026-09-10 20:23:55",
+  "dataset_size": 200,
+  "headline_metrics": {
+    "Baseline 0 (Trivial Canned)": {
+      "model_name": "Baseline 0 (Trivial Canned)",
+      "total_examples": 200,
+      "intent_accuracy": 0.205,
+      "intent_macro_f1": 0.0486,
+      "per_intent_metrics": {
+        "HARDWARE_BATTERY": {
+          "precision": 0.205,
+          "recall": 1.0,
+          "f1": 0.3402
+        },
+        "BILLING_SUBSCRIPTIONS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "OUT_OF_SCOPE_FEEDBACK": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "SOFTWARE_UPDATE_OS": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "DEVICE_PHYSICAL_AUDIO": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ACCOUNT_ICLOUD_SECURITY": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "CONNECTIVITY_NETWORK": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "escalation_accuracy": 0.655,
+      "escalation_precision": 0.0,
+      "escalation_recall": 0.0,
+      "escalation_f1": 0.0,
+      "false_automation_rate": 1.0,
+      "over_escalation_rate": 0.0,
+      "avg_rouge_l": 0.318,
+      "avg_latency_ms": 0.0
+    },
+    "Baseline 1 (Simple Zero-Shot)": {
+      "model_name": "Baseline 1 (Simple Zero-Shot)",
+      "total_examples": 200,
+      "intent_accuracy": 0.58,
+      "intent_macro_f1": 0.5659,
+      "per_intent_metrics": {
+        "HARDWARE_BATTERY": {
+          "precision": 0.7442,
+          "recall": 0.7805,
+          "f1": 0.7619
+        },
+        "BILLING_SUBSCRIPTIONS": {
+          "precision": 1.0,
+          "recall": 0.3462,
+          "f1": 0.5143
+        },
+        "OUT_OF_SCOPE_FEEDBACK": {
+          "precision": 0.2125,
+          "recall": 0.8947,
+          "f1": 0.3434
+        },
+        "SOFTWARE_UPDATE_OS": {
+          "precision": 0.9048,
+          "recall": 0.5,
+          "f1": 0.6441
+        },
+        "DEVICE_PHYSICAL_AUDIO": {
+          "precision": 0.6667,
+          "recall": 0.6667,
+          "f1": 0.6667
+        },
+        "ACCOUNT_ICLOUD_SECURITY": {
+          "precision": 0.9565,
+          "recall": 0.6875,
+          "f1": 0.8
+        },
+        "CONNECTIVITY_NETWORK": {
+          "precision": 1.0,
+          "recall": 0.1304,
+          "f1": 0.2308
+        }
+      },
+      "escalation_accuracy": 0.65,
+      "escalation_precision": 0.0,
+      "escalation_recall": 0.0,
+      "escalation_f1": 0.0,
+      "false_automation_rate": 1.0,
+      "over_escalation_rate": 0.0076,
+      "avg_rouge_l": 0.1146,
+      "avg_latency_ms": 0.0
+    },
+    "Proposed Support Agent (RAG)": {
+      "model_name": "Proposed Support Agent (RAG)",
+      "total_examples": 200,
+      "intent_accuracy": 0.855,
+      "intent_macro_f1": 0.8469,
+      "per_intent_metrics": {
+        "HARDWARE_BATTERY": {
+          "precision": 0.8125,
+          "recall": 0.9512,
+          "f1": 0.8764
+        },
+        "BILLING_SUBSCRIPTIONS": {
+          "precision": 1.0,
+          "recall": 0.5769,
+          "f1": 0.7317
+        },
+        "OUT_OF_SCOPE_FEEDBACK": {
+          "precision": 0.6071,
+          "recall": 0.8947,
+          "f1": 0.7234
+        },
+        "SOFTWARE_UPDATE_OS": {
+          "precision": 0.8537,
+          "recall": 0.9211,
+          "f1": 0.8861
+        },
+        "DEVICE_PHYSICAL_AUDIO": {
+          "precision": 0.9091,
+          "recall": 0.9524,
+          "f1": 0.9302
+        },
+        "ACCOUNT_ICLOUD_SECURITY": {
+          "precision": 1.0,
+          "recall": 0.8125,
+          "f1": 0.8966
+        },
+        "CONNECTIVITY_NETWORK": {
+          "precision": 0.95,
+          "recall": 0.8261,
+          "f1": 0.8837
+        }
+      },
+      "escalation_accuracy": 0.665,
+      "escalation_precision": 0.5192,
+      "escalation_recall": 0.3913,
+      "escalation_f1": 0.4463,
+      "false_automation_rate": 0.6087,
+      "over_escalation_rate": 0.1908,
+      "avg_rouge_l": 0.1641,
+      "avg_latency_ms": 0.55
+    }
+  },
+  "judge_metrics": {
+    "Baseline 0 (Trivial Canned)": {
+      "avg_groundedness": 3.0,
+      "avg_tone": 4.0,
+      "avg_actionability": 4.0,
+      "avg_escalation_match": 3.94,
+      "avg_overall_quality": 3.64
+    },
+    "Baseline 1 (Simple Zero-Shot)": {
+      "avg_groundedness": 3.0,
+      "avg_tone": 3.4,
+      "avg_actionability": 4.43,
+      "avg_escalation_match": 3.93,
+      "avg_overall_quality": 3.57
+    },
+    "Proposed Support Agent (RAG)": {
+      "avg_groundedness": 5.0,
+      "avg_tone": 4.17,
+      "avg_actionability": 4.73,
+      "avg_escalation_match": 4.22,
+      "avg_overall_quality": 4.58
+    }
+  },
+  "human_judge_alignment": {
+    "sample_size": 50,
+    "mean_cohens_kappa": 0.6271,
+    "mean_exact_agreement_pct": 79.5,
+    "overall_pearson_r": 0.9284,
+    "overall_mae": 0.165,
+    "per_dimension_results": {
+      "groundedness": {
+        "cohens_kappa": 0.7518,
+        "exact_agreement_pct": 86.0,
+        "adjacent_agreement_pct": 100.0,
+        "mae": 0.14
+      },
+      "tone": {
+        "cohens_kappa": 0.5671,
+        "exact_agreement_pct": 76.0,
+        "adjacent_agreement_pct": 100.0,
+        "mae": 0.24
+      },
+      "actionability": {
+        "cohens_kappa": 0.5113,
+        "exact_agreement_pct": 74.0,
+        "adjacent_agreement_pct": 100.0,
+        "mae": 0.26
+      },
+      "escalation_accuracy": {
+        "cohens_kappa": 0.6781,
+        "exact_agreement_pct": 82.0,
+        "adjacent_agreement_pct": 100.0,
+        "mae": 0.18
+      }
+    }
+  }
+}
