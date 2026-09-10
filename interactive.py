@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Interactive CLI Demo for Hiver AI Support Agent.
-Test any customer tweet in real time and see the Intent, Grounded Reply, and Escalation Decision!
+Test any customer tweet in real time and inspect Intent, Grounded Reply, and Escalation Decision.
 """
 
 import sys
@@ -14,7 +14,6 @@ def main():
     print("=" * 65)
     
     if len(sys.argv) > 1:
-        # One-off test from CLI argument
         query = " ".join(sys.argv[1:])
         run_query(agent, query)
         return
@@ -28,7 +27,7 @@ def main():
     ]
     print("Sample queries you can try:")
     for sq in sample_queries:
-        print(f"  • \"{sq}\"")
+        print(f"  - \"{sq}\"")
     print("-" * 65)
 
     while True:
@@ -48,11 +47,11 @@ def run_query(agent: SupportAgent, tweet: str):
     resp = agent.respond("interactive_demo", tweet)
     esc = resp.escalation_verdict
     print("\n--- [Agent Output] ---")
-    print(f"🎯 Detected Intent:    {resp.intent_result.intent} (Confidence: {resp.intent_result.confidence*100:.1f}%)")
-    print(f"⚠️  Escalation Verdict: {'🚨 ESCALATE TO HUMAN' if esc.should_escalate else '✅ AUTO-HANDLE (Bot Safe)'}")
-    print(f"📋 Reason:             {esc.stated_reason}")
-    print(f"💬 Draft Twitter Reply:\n\"{resp.draft_reply}\"")
-    print(f"⏱️  Latency:            {resp.processing_time_ms:.2f} ms")
+    print(f"  Intent:             {resp.intent_result.intent} (Confidence: {resp.intent_result.confidence*100:.1f}%)")
+    print(f"  Escalation Verdict: {'ESCALATE TO HUMAN' if esc.should_escalate else 'AUTO-HANDLE (Bot Safe)'}")
+    print(f"  Reason:             {esc.stated_reason}")
+    print(f"  Draft Reply:\n    \"{resp.draft_reply}\"")
+    print(f"  Latency:            {resp.processing_time_ms:.2f} ms")
     print("-" * 65)
 
 if __name__ == "__main__":
